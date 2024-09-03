@@ -1,4 +1,4 @@
-export 'package:ar_flutter_plugin_flutterflow/widgets/ar_view.dart';
+export 'package:ar_flutter_plugin_flutterflow/widgets/scanpage.dart';
 
 import 'dart:async';
 
