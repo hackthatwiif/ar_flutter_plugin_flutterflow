@@ -1,4 +1,36 @@
 # Changelog
+## 0.7.55
+* Updated ARCoreNanoPbUpdated to version 1.46.0.2, resolving a conflict with GTMSessionFetcher.
+
+## 0.7.54
+* Update README.md (adding instructions for ios Authorisations)
+
+## 0.7.53
+* ARCore does not support Firebase 11.X and the new version of nanopb (info here: https://github.com/CariusLars/ar_flutter_plugin/issues/232). 
+* Temporary use of a fork of ARCore (ARCoreNanoPbUpdated 1.46.0.1) that implements this update while waiting for Google to update the official ARCore package.
+
+## 0.7.52
+* Corrected the link to the explanatory diagram of the plugin architecture
+
+## 0.7.51
+* Updated plugin installation instructions
+
+## 0.7.50
+* Added instructions to make cloud anchors work in release mode
+
+## 0.7.49
+* Update description with running Flutterflow example
+
+## 0.7.48
+* Updated kotlin version from 1.7.10 to 1.9.22
+* Used mavenCentral instead of jcenter 
+* Updated gradle build tools from 4.1.0 to 8.3.0
+* Updated compileSdkVersion from 30 to 34
+* Added namespace and compileOptions
+* Updated Geolocator to version 12 
+* Added examples from the original plugin that are compatible with this new version of the plugin and flutterflow 
+* Updated instructions for creating "cloud Anchors" with flutterflow
+
 ## 0.7.47
 * Added the ability to hide or show surfaces after initialization using the function: arSessionManager.showPlanes(false/true);
 

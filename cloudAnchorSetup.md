@@ -62,9 +62,11 @@ The Google Cloud Anchor API is used by the plugin to upload, store and download 
      * Select ```cloudAnchorKey.json```  from the file manager.
      * A dialog will show up and ask you to select the targets, select the Runner target.
 
-## Set up Firebase
+## Set up Firebase 
 
 Google's Firebase cloud platform is used by the plugin's sample app to distribute and manage shared anchors and related content. If you want to use the included examples with shared AR experience features (e.g. the ```Cloud Anchors```example), the following setup steps are required (in your own apps, you can implement any method you like to distribute and manage the cloud anchor IDs that the plugin returns after uploading an anchor):
+
+<b> ⚠️ If you're using FlutterFlow, skip this (see below: "Set up Firebase with FlutterFlow.") </b>
 
 1. Create a new project in the [Firebase console](https://console.firebase.google.com/project/_/overview)
 2. Register the Android part of your Flutter Application (based on the [FlutterFire Android Installation Guide](https://firebase.flutter.dev/docs/installation/android/)):
@@ -82,6 +84,14 @@ Google's Firebase cloud platform is used by the plugin's sample app to distribut
    * A dialog will show up and ask you to select the targets, select the Runner target.
 4. Enable Cloud Firestore for the project you created in step 1 (head to https://console.firebase.google.com/project/INSERT_YOUR_FIREBASE_PROJECT_NAME_HERE/firestore)
 
+<table>
+<td>
+<img src="https://avatars.githubusercontent.com/u/74943865?s=48&amp;v=4" width="30" height="30" style="max-width: 100%; margin-bottom: -9px;"> </img>
+</td>
+<td> <b> Set up Firebase with FlutterFlow</b><br>
+With FlutterFlow, you need to set up Firebase from "App Settings" -> "Firebase."<br>
+The configuration is done automatically, so there's nothing else you need to do.</td></table>
+
 ## Set up Location Services
 
 * On the iOS part of your app, add the following to your Info.plist file (located under ios/Runner) in order to access the device's location:
@@ -91,4 +101,34 @@ Google's Firebase cloud platform is used by the plugin's sample app to distribut
   <key>NSLocationAlwaysUsageDescription</key>
   <string>This app needs access to location when in the background.</string>
   ```
-   
+  <br>
+<table>
+<td>
+<img src="https://avatars.githubusercontent.com/u/74943865?s=48&amp;v=4" width="30" height="30" style="max-width: 100%; margin-bottom: -9px;"> </img>
+</td>
+<td><b> If you're using FlutterFlow, go to "App Settings" > "Permissions" and add a new permission.<br>
+  Fill in the "iOS Permission Key" field and leave the "Android Permission Name" field empty.  </b><br>
+<br>
+  Add the following permissions:
+
+- **iOS Permission Key**: `NSLocationWhenInUseUsageDescription`  
+  **Permission Message**: This app needs access to location when open.
+
+- **iOS Permission Key**: `NSLocationAlwaysUsageDescription`  
+  **Permission Message**: This app needs access to location when in the background.
+
+</td></table>
+
+## Disabling Minification in Release Mode:
+
+* ErrorNotAuthorized may appear in release mode when hosting anchors. 
+  To resolve this issue, you need to disable code shrinking and minification by adding the following lines to your app/build.gradle:
+
+    ```java
+    buildTypes {
+        release {
+            minifyEnabled false
+            shrinkResources false
+        }
+    }
+    ```
